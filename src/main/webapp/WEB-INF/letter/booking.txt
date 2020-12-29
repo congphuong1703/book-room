@@ -1,0 +1,15 @@
+<html>
+
+<head></head>
+
+<body>
+    <p>Dear ${name} ,Email ${email}, Phone number ${phoneNumber}</p>
+    <p>Sending Email give you information for reserve room !!!</b></p>
+    <p>Room code ${roomCode}</p>
+    <p>Room number ${roomNumber}</p>
+    <p>Room price ${roomPrice}</p>
+    <p>Check in date ${checkInDate}</p>
+    <p>Check out date ${checkOutDate}</p>
+    <p>Thanks</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="home" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/home.jsp"></put-attribute>
+	</definition>
+<definition name="about" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/about.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="service" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/service.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="blog" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/blog.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="blog-single" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/blog-single.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="room" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/room.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="room-single" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/room-single.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="contact" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/contact.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="booking" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/booking.jsp"></put-attribute>
+	</definition>
+	<definition name="listroom" extends="templateUser">
+		<put-attribute name="content" value="/WEB-INF/user/listroom.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

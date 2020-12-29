@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="templateUser"
+		template="/WEB-INF/user/templateUser.jsp">
+		<put-attribute name="content" value=""></put-attribute>
+	</definition>
+	<definition name="emtyTemplate"
+		template="/WEB-INF/user/emtyTemplate.jsp">
+		<put-attribute name="content" value=""></put-attribute>
+	</definition>
+
+</tiles-definitions>
