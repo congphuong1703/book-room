@@ -62,7 +62,7 @@ public class DangNhapController {
 
 	@RequestMapping("/actionlogin")
 	public String actiondangnhap(ModelMap model, HttpServletRequest httpServletRequest, HttpServletResponse response,
-			@RequestParam("username") String tendangnhap, @RequestParam("password") String matkhau) {
+	                             @RequestParam("username") String tendangnhap, @RequestParam("password") String matkhau) {
 		matkhau = Common.encode(matkhau);
 		List<TaiKhoan> l = dangnhapservice.findUser(tendangnhap, matkhau);
 
@@ -94,7 +94,7 @@ public class DangNhapController {
 
 	@RequestMapping("/doimatkhau")
 	public String doimatkhau(HttpServletRequest httpServletRequest, ModelMap model,
-			@ModelAttribute("taikhoan") TaiKhoan taikhoan) {
+	                         @ModelAttribute("taikhoan") TaiKhoan taikhoan) {
 		HttpSession session = httpServletRequest.getSession();
 		TaiKhoan gettaikhoan = dangnhapservice.findById(session.getAttribute("nguoidung").toString()).get();
 		model.addAttribute("gettaikhoan", gettaikhoan);
@@ -105,7 +105,7 @@ public class DangNhapController {
 
 	@RequestMapping("/actiondoimatkhau")
 	public String actiondoimatkhau(HttpServletRequest httpServletRequest, ModelMap model,
-			@ModelAttribute("taikhoan") TaiKhoan taikhoan) {
+	                               @ModelAttribute("taikhoan") TaiKhoan taikhoan) {
 		String matkhaucu = httpServletRequest.getParameter("matkhaucu");
 		String matkhaumoi = httpServletRequest.getParameter("matkhaumoi");
 		matkhaucu = Common.encode(matkhaucu);

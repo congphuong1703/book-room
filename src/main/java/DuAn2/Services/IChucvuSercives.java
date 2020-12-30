@@ -1,9 +1,9 @@
 package DuAn2.Services;
 
 
+import DuAn2.Model.ChucVu;
 import org.springframework.data.repository.CrudRepository;
 
-import DuAn2.Model.ChucVu;
 
 
 

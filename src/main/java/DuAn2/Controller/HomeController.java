@@ -70,7 +70,7 @@ public class HomeController {
 				for (DatPhong datPhong : ittkhService.findAllByPhongMaPhongOrderByNgayDatDesc(phong.getMaPhong())) {
 
 					TraPhong traPhong = iTraPhong.getByDatPhongMaDatPhong(datPhong.getMaDatPhong());
-					if (datPhong == null || traPhong == null) {
+					if (traPhong == null) {
 
 						continue;
 					} else if ((simpleDateFormat.format(datPhong.getNgayDat()).compareTo(checkInDate) < 1 && simpleDateFormat.format(traPhong.getNgayTra()).compareTo(checkInDate) > -1)) {
@@ -92,8 +92,6 @@ public class HomeController {
 	@RequestMapping(value = "/booking", method = RequestMethod.POST)
 	public String bookingRoom(@Valid @ModelAttribute("bookingDTO") BookingDTO bookingDTO, Model model, WebRequest request) throws ParseException {
 		Phong phong = quanLyPhongService.getByMaPhong(bookingDTO.getRoomCode());
-
-
 		if (phong == null) {
 			if (!quanLyPhongService.findAllByLoaiPhongTenLoaiPhong(bookingDTO.getRoomType()).isEmpty()) {
 				List<Phong> phongs = quanLyPhongService.findAllByLoaiPhongTenLoaiPhong(bookingDTO.getRoomType());
@@ -130,11 +128,25 @@ public class HomeController {
 			return "booking";
 		}
 
+		if (bookingDTO.getCheckInDate().compareToIgnoreCase(new SimpleDateFormat("yyyy-MM-dd").format(new Date())) < 0) {
+			System.out.println(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+			//ở đây viết đúng nó hiện số chuẩn :v
+			System.out.println(bookingDTO.getCheckInDate());
+			model.addAttribute("error", "Check in date can greater or equal today");
+			return "booking";
+		}
+
+
+		if (bookingDTO.getCheckInDate().compareTo(bookingDTO.getCheckOutDate()) > -1) {
+			model.addAttribute("error", "Check in date can't greater check out date");
+			return "booking";
+		}
+
 		java.sql.Date sqlDate = java.sql.Date.valueOf(String.valueOf(bookingDTO.getCheckInDate()));
 		java.sql.Date sqlDate1 = java.sql.Date.valueOf(String.valueOf(bookingDTO.getCheckOutDate()));
 
 		DatPhong datPhong = new DatPhong((int) (ittkhService.countfindAll() + 1),
-			   bookingDTO.getPhoneNumber(),
+			   bookingDTO.getName(),
 			   bookingDTO.getPhoneNumber(),
 			   phong,
 			   sqlDate);

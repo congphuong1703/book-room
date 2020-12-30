@@ -11,7 +11,7 @@ public class MyErrorController implements ErrorController {
     public String error() {
         return "redirect:/dptp";
     }
-	
+
 	@Override
 	public String getErrorPath() {
 		// TODO Auto-generated method stub

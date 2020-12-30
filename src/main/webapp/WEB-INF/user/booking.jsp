@@ -37,16 +37,28 @@
                                 </div>
                                 <div class="hny-frm_grid">
                                     <h5>Check-in Date</h5>
-                                    <form:input path="checkInDate" name="checkInDate" type="date"
+                                    <form:input id="checkInDate" path="checkInDate" name="checkInDate" type="date"
                                                 placeholder="Check In Date" required=""></form:input>
                                 </div>
                                 <div class="hny-frm_grid">
                                     <h5>Check-out Date</h5>
-                                    <form:input path="checkOutDate" name="checkOutDate" type="date"
+                                    <form:input id="checkOutDate" path="checkOutDate" name="checkOutDate" type="date"
                                                 placeholder="Check Out Date" required=""></form:input>
                                     <form:input path="roomCode" name="roomCode" type="hidden"
-                                                placeholder="Room Code"></form:input>
+                                                placeholder="Room code"></form:input>
                                 </div>
+                                <c:if test="${show}">
+                                    <div class="hny-frm_grid">
+                                        <h5>Check-out Date</h5>
+                                        <input value="${roomCode}" name="roomNumber" type="number" readonly="true"
+                                               placeholder="Room Number" required=""/>
+                                    </div>
+                                    <div class="hny-frm_grid">
+                                        <h5>Check-out Date</h5>
+                                        <input value="${roomNumber}" name="roomNumber" type="number" readonly="true"
+                                               placeholder="Room Number" required=""/>
+                                    </div>
+                                </c:if>
                                 <div class="hny-frm_grid">
                                     <h5>Type Room</h5>
                                     <form:select path="roomType" name="roomType" required="">
@@ -54,6 +66,13 @@
                                         <form:option value="Thường">Thường</form:option>
                                         <form:option value="Homestay">Homestay</form:option>
                                     </form:select>
+                                </div>
+                                <div class="hny-frm_grid">
+                                    <h5>Payments</h5>
+                                    <select name="payments">
+                                        <option value="Paypal">Paypal</option>
+                                        <option value="QR">QR</option>
+                                    </select>
                                 </div>
                             </div>
                             <input type="submit" class="btn btn-style btn-secondary book mt-3"

@@ -67,13 +67,20 @@ public class PageController {
 
 	@RequestMapping(value = "/booking", method = RequestMethod.GET)
 	public String booking(@Param("roomCode") Integer roomCode, Model model) {
+
 		BookingDTO bookingDTO = new BookingDTO();
-		Phong phong = quanLyPhongService.getByMaPhong(roomCode);
+		Phong phong = new Phong();
 		if (roomCode != null) {
+			phong = quanLyPhongService.getByMaPhong(roomCode);
+
 			bookingDTO.setRoomCode(roomCode);
 			bookingDTO.setRoomType(phong.getLoaiPhong().getTenLoaiPhong());
+			model.addAttribute("show", true);
+
 		}
-		model.addAttribute("bookingDTO",bookingDTO);
+		model.addAttribute("roomCode", phong.getMaPhong());
+		model.addAttribute("roomNumber", phong.getSoPhong());
+		model.addAttribute("bookingDTO", bookingDTO);
 		return "booking";
 	}
 
